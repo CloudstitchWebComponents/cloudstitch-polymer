@@ -2,17 +2,19 @@
   "name": "cloudstitch-d3",
   "version": "1.0.1",
   "authors": [
-    "Anonymous <anonymous@example.com>"
+    "Anonymous <ted@cloudstitch.com>"
   ],
-  "description": "An element providing a solution to no problem in particular.",
+  "description": "An element providing a wrapper for a D3 widget.",
   "keywords": [
     "web-component",
     "polymer",
-    "seed"
+    "cloudstitch",
+    "d3",
+    "visualization"
   ],
   "main": "cloudstitch-d3.html",
-  "license": "http://polymer.github.io/LICENSE.txt",
-  "homepage": "https://github.com/<USERNAME>/seed-element/",
+  "license": "BSD",
+  "homepage": "https://github.com/CloudstitchWebComponents/cloudstitch-d3/",
   "ignore": [
     "/.*",
     "/test/"
