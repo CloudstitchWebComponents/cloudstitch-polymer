@@ -161,7 +161,7 @@ Example:
 
     // Element Behavior
     render: function() {
-      if (this.template) {
+      if (this.template && this.data) {
         Polymer.dom(this.$.template).innerHTML = this.template;
         if (this.customFn) {
           this.runCustomScript();
