@@ -111,7 +111,11 @@ Example:
     },
 
     _templateLoaderResponse: function(r) {      
-      this.template = r.detail.response;
+      if (r.detail.response) {
+        this.template = r.detail.response;
+      } else {
+        this.template = "<div></div>";
+      }  
       this.render();
     },
 
