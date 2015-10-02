@@ -1,7 +1,6 @@
 <link rel="import" href="../polymer/polymer.html">
 <link rel="import" href="../cloudstitch-spreadsheet/cloudstitch-spreadsheet.html">
-<link rel="import" href="./cloudstitch-d3.html">
-<link rel="import" href="./cloudstitch-d3.html">
+<link rel="import" href="./d3-template.html">
 
 <!--
 An element providing Cloudstitch-powered D3 templating.
@@ -88,15 +87,15 @@ Example:
     },
 
     computeTemplateUrl: function(user, app, label) {
-      return "http://apps.cloudstitch.io/" + user + "/" + app + "/widget.html"; 
+      return "http://apps.cloudstitch.io/" + user + "/" + app + "/widget.html?ts=" + Date.now();
     },
 
     computeScriptUrl: function(user, app, label) {
-      return "http://apps.cloudstitch.io/" + user + "/" + app + "/scripts.js"; 
+      return "http://apps.cloudstitch.io/" + user + "/" + app + "/scripts.js?ts=" + Date.now();
     },
 
     computeStyleUrl: function(user, app, label) {
-      return "http://apps.cloudstitch.io/" + user + "/" + app + "/styles.css"; 
+      return "http://apps.cloudstitch.io/" + user + "/" + app + "/styles.css?ts=" + Date.now();
     }
 
   });
