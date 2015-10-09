@@ -58,21 +58,29 @@ Example:
         value: function() {
           return null;
         },
-        observer: 'render'
+        observer: '_dataLoaded'
       },
 
       /**
-       * The data for the template.
+       * The url for the style.
        */
       styleUrl: {
         type: String,
-        value: null        
+        value: null
       },
 
       /**
-       * The data for the template.
+       * The url for the script.
        */
       scriptUrl: {
+        type: String,
+        value: null
+      },
+
+      /**
+       * The url for the template.
+       */
+      templateUrl: {
         type: String,
         value: null
       }
@@ -97,6 +105,11 @@ Example:
       if (this.runCustomFnWhenLoad) {
         this.runCustomScript();
       }
+      this._scriptLoaded = true;
+      console.log("script", 
+        this._scriptLoaded, this.scriptUrl);
+
+      this.maybeRender();
     },
 
     _styleLoaderResponse: function(r) {
@@ -104,19 +117,34 @@ Example:
       if (this.styleElement) {
         Polymer.dom(this).removeChild(this.styleElement);
         this.styleElement = null;
-      }        
+      }
       this.styleElement = document.createElement('style');
       this.styleElement.innerHTML = css;
       Polymer.dom(document.body).appendChild(this.styleElement);
+      this._styleLoaded = true;
+      console.log("style", 
+        this._styleLoaded, this.styleUrl);
+      this.maybeRender();
     },
 
-    _templateLoaderResponse: function(r) {      
+    _templateLoaderResponse: function(r) {
       if (r.detail.response) {
         this.template = r.detail.response;
       } else {
         this.template = "<div></div>";
-      }  
-      this.render();
+      }
+      this._templateLoaded = true;
+      console.log("template", 
+        this._templateLoaded, this.templateUrl);
+      this.maybeRender();
+    },
+
+    _dataLoaded: function(r) {
+      this._theDataLoaded = true;
+      console.log("data", 
+        this._theDataLoaded, this.data
+      );
+      this.maybeRender();
     },
 
     runCustomScript: function() {
@@ -141,6 +169,7 @@ Example:
       //
       // This is the point where you should make modifications to the DOM (when
       // necessary), or kick off any processes the element wants to perform.
+  console.log("d3 template ready");
     },
 
     attached: function() {
@@ -168,6 +197,17 @@ Example:
         } else {
           this.runCustomFnWhenLoad = true;
         }
+      }
+    },
+
+    maybeRender: function() {
+      if (
+        (this._scriptLoaded === true) &&
+        (this._styleLoaded === true) &&
+        (this._templateLoaded === true) &&
+        (this._theDataLoaded === true)
+      ) {
+        this.render();
       }
     }
   });
