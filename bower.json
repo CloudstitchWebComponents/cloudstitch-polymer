@@ -8,11 +8,9 @@
   "keywords": [
     "web-component",
     "polymer",
-    "cloudstitch",
-    "d3",
-    "visualization"
+    "cloudstitch"
   ],
-  "main": "cloudstitch-d3.html",
+  "main": "cloudstitch-polymer.html",
   "license": "BSD",
   "homepage": "https://github.com/CloudstitchWebComponents/cloudstitch-polymer/",
   "ignore": [

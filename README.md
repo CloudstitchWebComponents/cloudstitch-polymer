@@ -1,4 +1,4 @@
-# cloudstitch-d3
+# cloudstitch-polymer
 
 An element providing a starting point for your own reusable Polymer elements.
 
