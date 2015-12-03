@@ -14,19 +14,131 @@ subject to an additional IP rights grant found at http://polymer.github.io/PATEN
     <meta name="viewport" content="width=device-width, minimum-scale=1.0, initial-scale=1.0, user-scalable=yes">
     <title>cloudstitch-d3 Demo</title>
     <script src="../../webcomponentsjs/webcomponents-lite.js"></script>
-    <link rel="import" href="../d3-template.html">
-    <link rel="import" href="../cloudstitch-d3.html">
+    <link rel="import" href="../cloudstitch-polymer.html">
+
+    <style>
+      .breaking-news-feed {
+        font-size: 14px;
+      }
+
+      .breaking-news-feed ol {
+        display: block;
+        list-style-type: none;
+        -webkit-margin-before: 1em;
+        -webkit-margin-after: 1em;
+        -webkit-margin-start: 0px;
+        -webkit-margin-end: 0px;
+        -webkit-padding-start: 40px;
+      }
+
+      .breaking-news-feed li {
+        display: list-item;
+        text-align: -webkit-match-parent;
+        overflow: auto;
+        margin: 0;
+        padding: 0;
+        vertical-align: top;
+        padding-top: 12px;
+      }
+
+      .breaking-news-feed .header {
+        display: inline-block;
+        line-height: 100%;
+        vertical-align: top;
+      }
+
+      .breaking-news-feed .body {
+        display: inline-block;
+        overflow: hidden;
+        width: 100%;
+        max-width: 480px;
+        word-break: break-word;
+        margin-bottom: 1em;
+        font-size: 13px;
+      }
+
+      .breaking-news-feed time::before {
+        content: "";
+        display: inline-block;
+        width: 8px;
+        height: 8px;
+        border-radius: 4px;
+        background: #ebebeb;
+        margin-right: 6px;
+        margin-left: 6px;
+        transition: background 0.3s;
+      }
+
+      .breaking-news-feed .md {
+        color: #222222;
+        max-width: 60em;
+        overflow-wrap: break-word;
+        word-wrap: break-word;
+      }
+
+      .breaking-news-feed .md p{
+        padding: 0;
+        margin: 0;
+      }
+
+      .breaking-news-feed time {
+        display: inline-block;
+        font-size: 10px;
+        width: 120px;
+        text-align: left;
+        overflow: hidden;
+        float: left;
+        vertical-align: top;
+        margin-bottom: .5em;
+        padding-top: 3px;
+        color: #888;
+        transition: color 0.3s;
+        padding-left: 20px;
+        text-indent: -20px;        
+      }
+
+      .breaking-news-feed .author {
+        color: #b6c6d6;
+      }
+
+      .breaking-news-feed .topic {
+        color: #b6c6d6;
+      }
+
+    </style>
+
   </head>
   <body unresolved>
-    <h2>d3-template example</h2>
+    <h2>polymer-template example</h2>
 
-    <d3-template style-url="http://localhost:8080/components/cloudstitch-d3/demo/styles.css" script-url="http://localhost:8080/components/cloudstitch-d3/demo/scripts.js" template-url="http://localhost:8080/components/cloudstitch-d3/demo/widget.html">
-    </d3-template>
+    <cloudstitch-polymer user="project-templates" app="breaking-news-feed">      
+    </cloudstitch-polymer>
 
-    <h2>cloudstitch-d3 example</h2>
+<!--     <cloudstitch-polymer user="project-templates" app="breaking-news-feed">
+      <h2>{{Settings.FeedTitle}}
+      <div class="breaking-news-feed">
+        <ol class="liveupdate-listing">
+          <template is="dom-repeat" items="{{Feed}}">
+            <li class="liveupdate">
+              <div class="header">
+                <time class="live-timestamp" datetime="{{item.Time}}"></time>
+              </div>
+              <div class="body">       
+                <div class="md">
+                 <img hidden$="{{!Image}}" src="{{Image}}" />
+                 <p>{{item.Update}}</p>
+                 <p class="details">{{item.AdditionalNotes}}</p>
+                </div>
+                <div class="footer">
+                  <span class="topic">{{item.Event}}</span> / <span class="author">{{item.ReporterName}}</span>              
+                </div>
+              </div>
+            </li>
+          </template>
+        </ol>
+      </div>
+    </cloudstitch-polymer> -->
 
-    <cloudstitch-d3 user="visualizations" app="d3-change-dot-plot">
-    </cloudstitch-d3>
 
   </body>
 </html>
