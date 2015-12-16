@@ -8,7 +8,9 @@
   "keywords": [
     "web-component",
     "polymer",
-    "cloudstitch"
+    "cloudstitch",
+    "liveblog",
+    "breaking-news-feed"
   ],
   "main": "cloudstitch-polymer.html",
   "license": "BSD",
