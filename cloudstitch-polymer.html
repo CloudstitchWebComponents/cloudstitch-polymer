@@ -86,6 +86,11 @@ Example:
       label="{{label}}" 
       projection="items" 
       data="{{sheetdata}}"
+      domain="{{domain}}"
+      proto="{{proto}}"
+      style-file="{{styleFile}}"
+      script-file="{{scriptFile}}"
+      template-file="{{templateFile}}"
       on-ready-for-render="render"
       for-web-component></cloudstitch-box>
     <div id="template" is="dom-bind"></div>
@@ -121,6 +126,46 @@ Example:
       label: {
         type: String,
         value: 'sheet'
+      },
+
+      /**
+       * The domain from which to load the assets.
+       */
+      domain: {
+        type: String,
+        value: 'apps.cloudstitch.io'
+      },
+
+      /**
+       * The protocol to use
+       */
+      proto: {
+        type: String,
+        value: ''
+      },
+
+      /**
+       * The subpath of domain/user/app where the CSS lives.
+       */
+      styleFile: {
+        type: String,
+        value: 'styles.css'
+      },
+
+      /**
+       * The subpath of domain/user/app where the Javascript lives.
+       */
+      scriptFile: {
+        type: String,
+        value: 'scripts.js'
+      },
+
+      /**
+       * The subpath of domain/user/app where the HTML lives.
+       */
+      templateFile: {
+        type: String,
+        value: 'widget.html'
       },
 
       /**
